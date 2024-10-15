@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualizations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='visualization.css') }}">
+</head>
+<body>
+    <div class="visualization-container">
+        <h1>Data Visualizations</h1>
+        <p class="description">Explore the visual representations of the dataset used for diabetes prediction. These charts help provide insights into various data features and patterns.</p>
+
+        <div class="chart-container">
+            <div class="chart">
+                <h2>Pie Chart: Diabetes Outcome Distribution</h2>
+                <img src="data:image/png;base64,{{ pie_chart }}" alt="Pie Chart of Diabetes Outcome Distribution">
+            </div>
+
+            <div class="chart">
+                <h2>Bar Chart: Average Glucose Levels by Outcome</h2>
+                <img src="data:image/png;base64,{{ bar_chart }}" alt="Bar Chart of Average Glucose Levels by Outcome">
+            </div>
+
+            <div class="chart">
+                <h2>Heatmap: Feature Correlation</h2>
+                <img src="data:image/png;base64,{{ heatmap }}" alt="Feature Correlation Heatmap">
+            </div>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="btn back-result">Back to Home</a>
+    </div>
+</body>
+</html>

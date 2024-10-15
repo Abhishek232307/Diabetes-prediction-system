@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+</head>
+<body>
+    <div class="result-card">
+        <h1>Diabetes Prediction Result</h1>
+        <div class="result-text">{{ result }}</div>
+
+        <div class="result-box">
+            <p><strong>Model Metrics:</strong></p>
+            <ul>
+                <li>Accuracy: {{ accuracy }}</li>
+                <li>F1 Score: {{ f1_score }}</li>
+                <li>Precision: {{ precision }}</li>
+                <li>Recall: {{ recall }}</li>
+            </ul>
+        </div>
+         <p class="note">Note: This prediction is based on the model and should not be relied upon as a definitive diagnosis.</p>
+        <div class="button-container">
+            <a href="{{ url_for('form', algo='naive_bayes') }}" class="btn">Predict with Naive Bayes</a>
+            <a href="{{ url_for('form', algo='decision_tree') }}" class="btn">Predict with Decision Tree</a>
+            <a href="{{ url_for('form', algo='random_forest') }}" class="btn">Predict with Random Forest</a>
+        </div>
+
+        <a href="{{ url_for('visualizations') }}" class="visualizations-btn">View Visualizations</a>
+        <a href="/" class="back-home">Back to Home</a>
+    </div>
+</body>
+</html>
